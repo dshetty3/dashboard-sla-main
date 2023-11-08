@@ -29,7 +29,7 @@ Prerequisites: <code>Install npm or yarn</code>
 <h5>The application should now be accessible in your web browser at http://localhost:3000</h5> 
 
 
-<h3> Task Overview </h3>
+<h5> Task Overview </h5>
 
 <code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. I prefered yarn <code>
 
