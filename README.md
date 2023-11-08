@@ -31,7 +31,7 @@ Prerequisites: <code>Install npm or yarn</code>
 
 <h5> Task Overview </h5>
 
-<code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. I prefered yarn <code>
+<code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. I prefered yarn </code>
 
 <code> Pagination: I have created a Pagination component to display 100 rows/page to make it more user freindly.
 Changes have been implemented in the existing productDataBystatus() </code>
