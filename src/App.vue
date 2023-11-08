@@ -1,5 +1,7 @@
 <script setup>
 import TheTable from "./components/table.vue";
+import './assets/styles/dashboard.css';
+
 </script>
 
 <template>
@@ -7,3 +9,4 @@ import TheTable from "./components/table.vue";
     <TheTable />
   </div>
 </template>
+
