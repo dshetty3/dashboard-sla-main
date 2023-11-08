@@ -130,7 +130,6 @@ components: {
     SearchBar,
   },
   data: function () {
-  
     return {
       hidestatus: [],
       allCheckBox: [],
@@ -142,6 +141,7 @@ components: {
       searchQuery: '',
     };
   },
+
   mounted() {
     this.UIData = data;
     this.wwInfo = this.getWWFromDate();
@@ -153,18 +153,15 @@ components: {
       return element.Product.toLowerCase().includes(this.searchQuery.toLowerCase());
     });
   },
-  
-   
-
     wwData() {
       return `${this.wwInfo.year}WW${this.wwInfo.workweek}.${this.wwInfo.numofday}`;
     },
 
     productDataBystatus() {
     const start = (this.currentPage - 1) * this.itemsPerPage;
-    console.log("Start", start);
+    //console.log("Start", start);
     const end = start + this.itemsPerPage;
-    console.log("End", end);
+    //console.log("End", end);
       let tmp = {};
       let data = this.filteredData.slice(start, end);
       let statusSet = new Set();
@@ -196,14 +193,15 @@ components: {
     
 
     totalPages() {
-    console.log("Total Pages will be", Math.ceil(this.UIData.length / this.itemsPerPage));
-      return Math.ceil(this.UIData.length / this.itemsPerPage);
+    //console.log("Total Pages will be", Math.ceil(this.UIData.length / this.itemsPerPage));
+      //return Math.ceil(this.UIData.length / this.itemsPerPage);
+        return Math.ceil(this.filteredData.length / this.itemsPerPage);
+
     },
 
      
   },
   methods: {
-    
 
     getStatusClass(status) {
       switch (status) {

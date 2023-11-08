@@ -29,5 +29,25 @@ Prerequisites: <code>Install npm or yarn</code>
 <h5>The application should now be accessible in your web browser at http://localhost:3000</h5> 
 
 
+<h3> Task Overview </h3>
+
+<code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. I prefered yarn <code>
+
+<code> Pagination: I have created a Pagination component to display 100 rows/page to make it more user freindly.
+Changes have been implemented in the existing productDataBystatus() </code>
+
+<code> Color Coding: Color Coded the Products based on the Status:
+
+       Here, Launched - Lightblue 
+       Discontinued - LightGreen
+       Launched (with IPU) -Yellow
+       Announced - Light Gray
+</code>
+
+<code> SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later)    
+    The search bar is the top right hand side of the page. Once the user enters the product name - it will start filtering out the 
+    names present from the product column. </code> 
+
+
 
 

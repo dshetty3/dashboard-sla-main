@@ -30,6 +30,11 @@
       z-index: 999;
       border: 1px solid #ccc;
     }
+
+  .search-bar-top-right input{
+      height: 20px;
+      width: 250px;
+  }  
   
   
   
