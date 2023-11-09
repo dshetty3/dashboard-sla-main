@@ -31,20 +31,30 @@ Prerequisites: <code>Install npm or yarn</code>
 
 <h5> Task Overview </h5>
 
-<code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. I prefered yarn <code>
+<code> For Refactor and Enhancement, I have converted the application from Vue 2 to Vue 3 by installing all the necessary dependencies. Changes were mostly in the following files:
 
-<code> Pagination: I have created a Pagination component to display 100 rows/page to make it more user freindly.
-Changes have been implemented in the existing productDataBystatus() </code>
+-   package-lock.json/yarn-lock 
+-   package.json
+-   App.vue
+-   vite-config.js
 
-<code> Color Coding: Color Coded the Products based on the Status:
+Also, all the styles which were earlier present in file table.vue are all now shifted to dashboard.css file which is located in path ./src/assets/styles/dashboard.css</code>
 
-       Here, Launched - Lightblue 
-       Discontinued - LightGreen
-       Launched (with IPU) -Yellow
-       Announced - Light Gray
+<code>
+For the existing functionality, I have created a Datatable component to show all the products in the table and for the HideShow functionality checkboxes at the left-hand side of the page, all the related code is present in the StatusFilter component.
 </code>
 
-<code> SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later)    
+<code> 1. Pagination: I have created a Pagination component to display 100 rows/page to make it more user freindly.
+Changes have been implemented in the existing productDataBystatus() </code>
+
+<code> 2. Color Coding: Color Coded the Products based on the Status:
+   - Launched: ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `Launched`
+   - Discontinued: ![#7CFC00](https://via.placeholder.com/15/7CFC00/000000?text=+) `Discontinued`
+   - Launched (with IPU): ![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+) `Launched (with IPU)`
+   - Announced: ![#D3D3D3](https://via.placeholder.com/15/D3D3D3/000000?text=+) `Announced`
+</code>
+
+<code> 3. SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later). The code for this task is present in theh SearchBar component.  
     The search bar is the top right hand side of the page. Once the user enters the product name - it will start filtering out the 
     names present from the product column. </code> 
 
