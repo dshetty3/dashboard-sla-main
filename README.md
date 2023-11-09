@@ -37,10 +37,10 @@ Prerequisites: <code>Install npm or yarn</code>
 Changes have been implemented in the existing productDataBystatus() </code>
 
 <code> 2. Color Coding: Color Coded the Products based on the Status:
-   - Launched: <span style="background-color: LightBlue; color: white; padding: 3px 10px; border-radius: 3px;">Launched</span>
-   - Discontinued: <span style="background-color: LightGreen; color: black; padding: 3px 10px; border-radius: 3px;">Discontinued</span>
-   - Launched (with IPU): <span style="background-color: Yellow; color: black; padding: 3px 10px; border-radius: 3px;">Launched (with IPU)</span>
-   - Announced: <span style="background-color: LightGray; color: black; padding: 3px 10px; border-radius: 3px;">Announced</span>
+   - Launched: ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) `Launched`
+   - Discontinued: ![#7CFC00](https://via.placeholder.com/15/7CFC00/000000?text=+) `Discontinued`
+   - Launched (with IPU): ![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+) `Launched (with IPU)`
+   - Announced: ![#D3D3D3](https://via.placeholder.com/15/D3D3D3/000000?text=+) `Announced`
 </code>
 
 <code> 3. SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later)    
