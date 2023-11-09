@@ -37,8 +37,7 @@ Prerequisites: <code>Install npm or yarn</code>
 Changes have been implemented in the existing productDataBystatus() </code>
 
 <code> 2. Color Coding: Color Coded the Products based on the Status:
-
-       Here, Launched - Lightblue 
+       Here, <font color="Lightblue"> Launched </font>
        Discontinued - LightGreen
        Launched (with IPU) -Yellow
        Announced - Light Gray
