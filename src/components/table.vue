@@ -1,39 +1,13 @@
 <template>
   <div>
     <!-- Hide By status Bar -->
-     
-    <div class="hideBar">
-      <label class="hideLabel"> Hide: </label>
-      <div class="checkbox">
-        <!-- All status -->
-        <input
-          :id="productDataBystatus.status"
-          type="checkbox"
-          class="styled"
-          :value="productDataBystatus.status"
-          @click="hideShowALLstatus"
-          v-model="hidestatus"
-        />
-        <label :for="productDataBystatus.status">All statuses</label>
+    <StatusFilter v-model="hidestatus" @update:hidestatus="updateHidestatus" :productDataBystatus="productDataBystatus" />
 
-        <!-- Dynamic status -->
-        <div v-for="status in productDataBystatus.status" :key="`${status}`">
-          <input
-            :id="`${status}`"
-            type="checkbox"
-            class="styled"
-            :value="status"
-            v-model="hidestatus"
-          />
-          <label :for="`${status}`">
-            {{ status }}
-          </label>
-        </div>
-      </div>
-    </div>
 
+  <!-- Search bar to filter out with Product Criteria -->
    <SearchBar v-model="searchQuery" />
 
+  <!-- Pagination for 100 rows/page -->
    <Pagination
       :currentPage="currentPage"
       :totalPages="totalPages"
@@ -41,79 +15,8 @@
       @nextPage="nextPage"
     />
 
-    <!-- Main Table Design -->
-    
-    <table>
-      <thead>
-        <tr>
-          <td :colspan="12">Dashboard SLA</td>
-        </tr>
-        <tr>
-          <th colspan="3">{{ wwData }}</th>
-          <th colspan="8">Product Info</th>
-        </tr>
-        <tr>
-          <th>Status</th>
-          <th>Cores</th>
-          <th class="width1">Product</th>
-          <th class="width1">Lithography</th>
-          <th>Threads</th>
-          <th>Base Freq</th>
-          <th>Max Turbo Freq</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <template v-for="(data, status, index) in productDataBystatus.data">
-          <!-- status -->
-        
-          <tr :class="getStatusClass(status)">
-            <td class="width1" :rowspan="calstatusRowspan(data)">
-          
-              {{ status }}
-            </td>
-          </tr>
-
-          <template v-for="cores in Object.keys(data)">
-            <!-- cores -->
-            <tr>
-              <td class="width1" :rowspan="Object.keys(data[cores]).length + 1">
-                {{ cores }}
-              </td>
-            </tr>
-
-            <tr v-for="(v, k) in data[cores]">
-              <!-- product -->
-               <td :class="getStatusClass(status)">{{ v.Product }}</td>
-
-              <!-- Lithography -->
-              <td>{{ v.Lithography }}</td>
-
-              <!-- Threads -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Threads" :disabled="true" type="text" />
-                </div>
-              </td>
-
-              <!-- Base Freq -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Base_Freq" :disabled="true" type="text" />
-                </div>
-              </td>
-
-              <!-- Max Turbo Freq -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Max_Turbo_Freq" type="text" :disabled="true" />
-                </div>
-              </td>
-            </tr>
-          </template>
-        </template>
-      </tbody>
-    </table>
+  <!-- Main Table Design -->
+     <DataTable :productDataBystatus="productDataBystatus" :wwData="wwData" />
     <!-- End of Table Design -->
   </div>
 </template>
@@ -123,11 +26,16 @@
 import data from "../assets/data.json";
 import Pagination from "../components/Pagination.vue"
 import SearchBar from "../components/SearchBar.vue"
+import DataTable from "../components/DataTable.vue";
+import StatusFilter from "../components/StatusFilter.vue";
+
 
 export default {
 components: {
     Pagination,
     SearchBar,
+    DataTable,
+    StatusFilter,
   },
   data: function () {
     return {
@@ -180,7 +88,6 @@ components: {
         tmp[status][cores].push(element);
       });
 
-      // sort status in order
       const strings = new Set(statusSet);
       const sortedStringsArray = [...strings].sort();
       statusSet = new Set(sortedStringsArray);
@@ -190,35 +97,18 @@ components: {
         data: tmp,
       };
     },
-    
-
     totalPages() {
     //console.log("Total Pages will be", Math.ceil(this.UIData.length / this.itemsPerPage));
       //return Math.ceil(this.UIData.length / this.itemsPerPage);
         return Math.ceil(this.filteredData.length / this.itemsPerPage);
-
-    },
-
-     
+    },    
   },
   methods: {
 
-    getStatusClass(status) {
-      switch (status) {
-        case 'Launched':
-          return 'status-launched';
-        case 'Discontinued':
-          return 'status-discontinued';
-        case 'Launched (with IPU)':
-          return 'status-launchedwithipu';
-        case 'Announced':
-          return 'status-announced';
-        default:
-          return ''; // No special class for other statuses
-      }
+   updateHidestatus(updatedHidestatus) {
+      this.hidestatus = updatedHidestatus;
     },
 
-  
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -230,13 +120,7 @@ components: {
       }
     },
 
-    calstatusRowspan(data) {
-      let sum = Object.keys(data).length + 1;
-      for (const cores in data) {
-        sum += Object.keys(data[cores]).length;
-      }
-      return sum;
-    },
+   
     getWWFromDate(date = null) {
       let currentDate = date || new Date();
       let startDate = new Date(currentDate.getFullYear(), 0, 1);
@@ -260,7 +144,6 @@ components: {
       }
 
       this.allCheck = !this.allCheck;
-
       if (this.allCheck) {
       } else {
         this.hidestatus = [];

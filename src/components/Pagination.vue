@@ -1,10 +1,10 @@
 <template>
   <div class="centered-pagination">
     <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
-    <span>
-      <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    </span>
-    <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+  
+      &nbsp; Page {{ currentPage }} of {{ totalPages }} &nbsp;
+    
+    <button @click="nextPage" :disabled="currentPage === totalPages">  Next</button>
   </div>
 </template>
 
