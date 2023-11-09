@@ -73,7 +73,7 @@ export default {
         case 'Announced':
           return 'status-announced';
         default:
-          return ''; // No special class for other statuses
+          return ''; 
       }
     },
      calstatusRowspan(data) {

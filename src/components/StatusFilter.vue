@@ -34,13 +34,13 @@ export default {
   props: {
     hidestatus: {
       type: Array,
-      default: () => [] // Ensure that hidestatus has a default value of an empty array
+      default: () => [] 
     },
     productDataBystatus: Object,
   },
   data() {
     return {
-      localHidestatus: this.hidestatus.slice(), // Create a local copy of hidestatus
+      localHidestatus: this.hidestatus.slice(), 
     };
   },
   methods: {
@@ -54,14 +54,13 @@ export default {
     }
     this.$emit('update:hidestatus', this.localHidestatus);
   },
-  // Handle individual status checkboxes
   handleStatusCheckbox(status) {
     if (this.localHidestatus.includes(status)) {
       this.localHidestatus = this.localHidestatus.filter(item => item !== status);
     } else {
       this.localHidestatus.push(status);
     }
-    this.allCheck = false; // Uncheck the "All statuses" checkbox
+    this.allCheck = false; 
     this.$emit('update:hidestatus', this.localHidestatus);
   }
 }
