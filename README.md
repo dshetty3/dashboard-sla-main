@@ -54,9 +54,7 @@ Changes have been implemented in the existing productDataBystatus() </code>
    - Announced: ![#D3D3D3](https://via.placeholder.com/15/D3D3D3/000000?text=+) `Announced`
 </code>
 
-<code> 3. SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later). The code for this task is present in theh SearchBar component.  
-    The search bar is the top right hand side of the page. Once the user enters the product name - it will start filtering out the 
-    names present from the product column. </code> 
+<code> 3. SearchBar (Optional) : Implement Search Bar to filter out rows (I have used Product as a criteria - can be changed later). The code for this task is present in theh SearchBar component. The search bar is the top right hand side of the page. Once the user enters the product name - it will start filtering out the names present from the product column. </code> 
 
 
 
